@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 class InputScreen extends StatefulWidget {
   final String name;
-
   const InputScreen({super.key, required this.name});
 
   @override
@@ -32,25 +31,23 @@ class _InputScreenState extends State<InputScreen> {
                   Text(
                     'Enter your details',
                     textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                      fontSize: 28,
-                    ),
+                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontSize: 28, color: Colors.white),
                   ),
                   const SizedBox(height: 40),
                   TextFormField(
                     controller: _heightController,
+                    style: const TextStyle(color: Colors.white),
                     keyboardType: TextInputType.number,
                     decoration: const InputDecoration(
                       labelText: 'Height (cm)',
-                      prefixIcon: Icon(Icons.height),
+                      prefixIcon: Icon(Icons.height, color: Colors.white70),
                     ),
                     textAlignVertical: TextAlignVertical.center,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter your height';
                       }
-                      if (double.tryParse(value) == null ||
-                          double.parse(value) <= 0) {
+                      if (double.tryParse(value) == null || double.parse(value) <= 0) {
                         return 'Please enter a valid height';
                       }
                       return null;
@@ -59,20 +56,18 @@ class _InputScreenState extends State<InputScreen> {
                   const SizedBox(height: 25),
                   TextFormField(
                     controller: _weightController,
+                    style: const TextStyle(color: Colors.white),
                     keyboardType: TextInputType.number,
                     decoration: const InputDecoration(
                       labelText: 'Weight (kg)',
-                      prefixIcon: Icon(
-                        Icons.monitor_weight,
-                      ),
+                      prefixIcon: Icon(Icons.monitor_weight, color: Colors.white70),
                     ),
                     textAlignVertical: TextAlignVertical.center,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter your weight';
                       }
-                      if (double.tryParse(value) == null ||
-                          double.parse(value) <= 0) {
+                      if (double.tryParse(value) == null || double.parse(value) <= 0) {
                         return 'Please enter a valid weight';
                       }
                       return null;
@@ -85,12 +80,11 @@ class _InputScreenState extends State<InputScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder:
-                                (context) => ResultScreen(
-                                  name: widget.name,
-                                  height: double.parse(_heightController.text),
-                                  weight: double.parse(_weightController.text),
-                                ),
+                            builder: (context) => ResultScreen(
+                              name: widget.name,
+                              height: double.parse(_heightController.text),
+                              weight: double.parse(_weightController.text),
+                            ),
                           ),
                         );
                       }

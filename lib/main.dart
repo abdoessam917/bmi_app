@@ -11,13 +11,14 @@ class BMICalculatorApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: _lightTheme,
+      darkTheme:_darkTheme ,
       home: const NameScreen(),
     );
   }
 }
 
 final ThemeData _darkTheme = ThemeData.dark().copyWith(
-  primaryColor: Colors.tealAccent,
+  primaryColor: Colors.pinkAccent,
     scaffoldBackgroundColor: const Color(0xFF0A0E21),
     appBarTheme: const AppBarTheme(
       backgroundColor: Color(0xFF0A0E21),
@@ -57,7 +58,7 @@ final ThemeData _darkTheme = ThemeData.dark().copyWith(
 );
 
 final ThemeData _lightTheme = ThemeData.light().copyWith(
-    primaryColor: Colors.teal,
+    primaryColor: Colors.pink,
     scaffoldBackgroundColor: Colors.white,
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.white,
